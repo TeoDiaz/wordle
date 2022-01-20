@@ -1,8 +1,8 @@
-<div id="main_container" phx-hook="Confetti" class="bg-black w-screen flex h-screen">  
-  <div class="m-auto">
+<div id="main_container" phx-hook="Confetti" class="bg-black w-screen flex flex-1">  
+  <div class="m-auto w-full md:w-auto">
     <p class="text-6xl text-white text-center ">Wordle</p>
     <div class="items-center justify-center">
-      <div class="grid grid-cols-5 gap-4 pt-10">
+      <div class="grid grid-cols-5 gap-0 md:gap-4 pt-10 p-1">
         <%= for guess <- @guesses do %>
           <Word.show word={guess} secret_word={@secret_word} />
         <% end %>

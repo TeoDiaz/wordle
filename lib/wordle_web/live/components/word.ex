@@ -12,13 +12,14 @@ defmodule WordleWeb.Live.Components.Word do
   def placeholder(assigns) do
     ~H"""
     <%= for _i <- 1..5 do %>
-      <div class="text-center pt-4 text-4xl border-2 w-20 h-20 text-white border-white rounded mr-1 mb-1 bg-black"></div>
+      <div class="text-center text-2xl border-2 h-16 text-white border-white rounded bg-black md:w-20 md:h-20"></div>
     <% end %>
     """
   end
   
   defp class(char, index, secret_word) do
-    common_classes = "text-center pt-4 text-4xl border-2 w-20 h-20 text-white border-white rounded mr-1 mb-1 " 
+    common_classes = "flex justify-center items-center text-2xl md:text-4xl border-2 h-16 text-white border-white rounded md:w-20 md:h-20 " 
+    
     color = cond do 
       String.split(secret_word, "", trim: true) |> Enum.at(index) == char ->
         "bg-green-500"
