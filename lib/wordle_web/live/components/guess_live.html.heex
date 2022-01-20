@@ -1,0 +1,5 @@
+<div phx-hook="GuessContainer" id="guess_container" class="col-span-5 grid grid-cols-5 gap-4">
+<%= for {char, index} <- Enum.with_index(@actual_guesses) do %>
+    <input phx-hook="Guess" id={"guess_#{index}"} value={char} phx-target={@myself} phx-keyup={"guess_#{index}"} maxlength="1" class="resize-none bg-black text-center pt-2 text-4xl border-2 w-20 h-20 text-white border-white rounded mr-1 mb-1" />
+<% end %>
+</div>

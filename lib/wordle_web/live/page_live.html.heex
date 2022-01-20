@@ -1,0 +1,24 @@
+<div id="main_container" phx-hook="Confetti" class="bg-black w-screen flex h-screen">  
+  <div class="m-auto">
+    <p class="text-6xl text-white text-center ">Wordle</p>
+    <div class="items-center justify-center">
+      <div class="grid grid-cols-5 gap-4 pt-10">
+        <%= for guess <- @guesses do %>
+          <Word.show word={guess} secret_word={@secret_word} />
+        <% end %>
+        <%= if not @won? do%>
+          <.live_component module={WordleWeb.Live.Components.GuessLive}, id="actual_guess"/>
+          <%= for _guess <- 0..(3 - length(@guesses)) do %>
+            <Word.placeholder />
+          <% end %>
+         <% else %>
+         <div class="mt-10 flex justify-center col-span-5">
+          <%= live_patch to: Routes.live_path(@socket, WordleWeb.PageLive), replace: true, class: "bg-transparent hover:bg-purple-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded" do %>
+          Play Again
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+ </div>
