@@ -8,7 +8,7 @@ defmodule WordleWeb.Live.Components.Word do
     <% end) %>
     """
   end
-  
+
   def placeholder(assigns) do
     ~H"""
     <%= for _i <- 1..5 do %>
@@ -16,20 +16,23 @@ defmodule WordleWeb.Live.Components.Word do
     <% end %>
     """
   end
-  
-  defp class(char, index, secret_word) do
-    common_classes = "flex justify-center items-center text-2xl md:text-4xl border-2 h-16 text-white border-white rounded md:w-20 md:h-20 " 
-    
-    color = cond do 
-      String.split(secret_word, "", trim: true) |> Enum.at(index) == char ->
-        "bg-green-500"
-      Enum.member?(String.split(secret_word, "", trim: true), char) -> 
-        "bg-yellow-500"
-      true ->
-        "bg-black"
-      end
-      
-      common_classes <> color
-  end
 
+  defp class(char, index, secret_word) do
+    common_classes =
+      "flex justify-center items-center text-2xl md:text-4xl border-2 h-16 text-white border-white rounded md:w-20 md:h-20 "
+
+    color =
+      cond do
+        String.split(secret_word, "", trim: true) |> Enum.at(index) == char ->
+          "bg-green-500"
+
+        Enum.member?(String.split(secret_word, "", trim: true), char) ->
+          "bg-yellow-500"
+
+        true ->
+          "bg-black"
+      end
+
+    common_classes <> color
+  end
 end

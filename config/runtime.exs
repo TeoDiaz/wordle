@@ -24,7 +24,7 @@ if config_env() == :prod do
       environment variable SECRET_KEY_BASE is missing.
       You can generate one by calling: mix phx.gen.secret
       """
-      
+
   config :wordle, WordleWeb.Endpoint,
     http: [
       # Enable IPv6 and bind on all interfaces.

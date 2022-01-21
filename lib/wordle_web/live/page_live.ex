@@ -3,8 +3,6 @@ defmodule WordleWeb.PageLive do
 
   alias WordleWeb.Live.Components.Word
 
-  @words_list ["piano"]
-
   def handle_params(_params, _uri, socket) do
     {:noreply,
      assign(socket,
@@ -27,8 +25,20 @@ defmodule WordleWeb.PageLive do
     end
   end
 
-  defp secret_word() do
-    random_num = Enum.random(0..(length(@words_list) - 1))
-    @words_list |> Enum.at(random_num)
+  defp secret_word do
+    random_num = Enum.random(0..8000)
+    word = word_list() |> Enum.at(random_num)
+
+    case String.length(word) do
+      5 -> String.upcase(word)
+      _ -> secret_word()
+    end
+  end
+
+  def word_list do
+    "../../../assets/words.txt"
+    |> Path.expand(__DIR__)
+    |> File.read!()
+    |> String.split(~r/\n/)
   end
 end
