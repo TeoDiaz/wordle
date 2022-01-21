@@ -6,7 +6,7 @@
         <%= for guess <- @guesses do %>
           <Word.show word={guess} secret_word={@secret_word} />
         <% end %>
-        <%= if length(@guesses) < 5 do %>
+        <%= if not @won? && length(@guesses) < 5 do %>
           <.live_component module={WordleWeb.Live.Components.GuessLive}, id="actual_guess"/>
           <%= if length(@guesses) < 4 do %>
             <%= for _guess <- 0..(length(@guesses) - 3) do %>
