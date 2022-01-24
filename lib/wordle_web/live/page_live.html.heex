@@ -15,6 +15,11 @@
           <% end %>
          <% else %>
          <div class="mt-10 flex justify-center col-span-5">
+          <%= if not @won? do %>
+          <div class="text-white font-semibold py-2 px-4">
+            The secret word was: <%= @secret_word %>
+          </div>
+          <% end %>
           <%= live_patch to: Routes.live_path(@socket, WordleWeb.PageLive), replace: true, class: "bg-transparent hover:bg-purple-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded" do %>
             Play Again
           <% end %>

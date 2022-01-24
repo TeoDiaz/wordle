@@ -2,10 +2,6 @@ const Hooks = {};
 
 Hooks.Guess = {
   mounted() {
-    this.el.addEventListener("keyup", () => {
-      this.el.value = this.el.value.toUpperCase();
-    });
-
     this.el.addEventListener("focus", () => {
       this.el.value = "";
     });
