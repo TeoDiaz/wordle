@@ -1,4 +1,4 @@
-# Wordle - PhoenixLiveView
+# Wordle - Phoenix LiveView
 
 A copy of the Famous Wordle game made with PhoenixLiveView
 
