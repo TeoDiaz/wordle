@@ -2,7 +2,9 @@
 
 A copy of the Famous Wordle game made with PhoenixLiveView
 
-#### You can play in https://wordlegame.herokuapp.com/
+#### Can I play?
+
+Not right now as the Herokuapp License has fallen
 
 ### How to play?
 
